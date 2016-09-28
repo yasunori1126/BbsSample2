@@ -1,0 +1,27 @@
+﻿@model IEnumerable<BbsSample.Models.Comment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach(var item in Model)
+{
+    <div class="panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                @Html.DisplayFor(modelItem => item.UserName)
+                @Html.DisplayFor(modelItem => item.Created)
+                @Html.ActionLink("x","Delete",new { id = item.id },new { @class = "pull-right"})
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div style="white-space:pre;">@Html.DisplayFor(modelItem => item.Body)</div>
+        </div>
+    </div>
+}
